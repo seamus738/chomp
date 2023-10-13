@@ -16,6 +16,9 @@ screen.fill((100,200,255))
 #make a rectangle
 pygame.draw.rect(screen, (100,25,0), (0,380, 400, 400))
 pygame.draw.rect(screen,(100,200,0), (200, 200, 25, 25))
+sand = pygame.image.load("assets/images/sand.png").convert()
+screen.blit(sand, (200,200, 64, 64))
+#.convert() will make an image transparent
 pygame.display.flip()
 
 while True:
