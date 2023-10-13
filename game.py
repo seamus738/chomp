@@ -1,8 +1,10 @@
 import pygame
 import time
+import sys
 
 print(f'the quit event is type {pygame.QUIT}')
 #Quit=256
+
 pygame.init()
 
 screen=pygame.display.set_mode((400,400))
@@ -20,7 +22,9 @@ while True:
     #could use: if event.type==pygame.QUIT: or -->
     for event in pygame.event.get():
         if event.type==256:
-            print('not today')
-        print(event.type)
+            print('thank you for playing')
+            pygame.quit()
+            sys.exit()
+
 
 
