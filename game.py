@@ -64,11 +64,18 @@ while True:
             pygame.quit()
             sys.exit()
         if event.type==pygame.KEYDOWN:
+
             if event.key==pygame.K_LEFT:
                 my_fish.move_left()
 
             if event.key==pygame.K_RIGHT:
                 my_fish.move_right()
+
+            if event.key==pygame.K_UP:
+                my_fish.move_up()
+                
+            if event.key==pygame.K_DOWN:
+                my_fish.move_down()
 
     #update the game screen
     screen.blit(background,(0,0))

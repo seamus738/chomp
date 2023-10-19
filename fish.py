@@ -18,5 +18,13 @@ class Fish(pygame.sprite.Sprite):
         self.x -= 10
         print('swimming to left ')
 
+    def move_up(self):
+        self.y -= 10
+        print('swimming up ')
+
+    def move_down(self):
+        self.y += 10
+        print('swimming down')
+
     def draw(self, screen):
         screen.blit(self.image, (self.x, self.y))
