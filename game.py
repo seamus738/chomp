@@ -29,7 +29,7 @@ sandtop.set_colorkey((0, 0, 0))
 seaweed = pygame.image.load("assets/images/seagrass.png").convert()
 seaweed.set_colorkey((0, 0, 0))
 my_fish=fish.Fish(200, 200) #create a new fish
-
+clock=pygame.time.Clock()
 background=screen.copy()
 
 def draw_background():
@@ -63,21 +63,36 @@ while True:
             print('thank you for playing')
             pygame.quit()
             sys.exit()
-        if event.type==pygame.KEYDOWN:
+        elif event.type==pygame.KEYDOWN:
 
             if event.key==pygame.K_LEFT:
-                my_fish.move_left()
+                my_fish.moving_left=True
 
             if event.key==pygame.K_RIGHT:
-                my_fish.move_right()
+                my_fish.moving_right=True
 
             if event.key==pygame.K_UP:
-                my_fish.move_up()
-                
+                my_fish.moving_up= True
+
             if event.key==pygame.K_DOWN:
-                my_fish.move_down()
+                my_fish.moving_down=True
+        elif event.type == pygame.KEYUP:
+
+            if event.key == pygame.K_LEFT:
+                my_fish.moving_left = False
+
+            if event.key == pygame.K_RIGHT:
+                my_fish.moving_right = False
+
+            if event.key == pygame.K_UP:
+                my_fish.moving_up = False
+
+            if event.key == pygame.K_DOWN:
+                my_fish.moving_down = False
 
     #update the game screen
     screen.blit(background,(0,0))
+    my_fish.update()
     my_fish.draw(screen)
     pygame.display.flip()
+    clock.tick(60)
